@@ -110,6 +110,6 @@ function validateEmoji(name, character) {
   return "valid";
 }
 
-const port = 3000;
+const PORT = process.env.PORT || 3030;
 
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
