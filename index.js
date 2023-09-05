@@ -90,6 +90,14 @@ app.put("/emojis/:id", (req, res) => {
   return res.send({ success: true, emoji });
 });
 
+app.use((req, res) => {
+  res.send({ success: false, error: "No route found." });
+});
+
+app.use((error, req, res, next) => {
+  res.send({ success: false, error: error.message });
+});
+
 function findEmoji(id) {
   const emoji = emojis.find((emoji) => emoji.id === Number(id));
   return emoji;
